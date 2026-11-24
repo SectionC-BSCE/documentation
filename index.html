@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section C Documentation | Aqualoop Portal</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration for Fonts & Animations -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'blob': 'blob 10s infinite alternate',
+                        'blob-delayed': 'blob 12s infinite alternate-reverse',
+                        'fade-in-up': 'fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '50%': { transform: 'translate(30px, -40px) scale(1.08)' },
+                            '100%': { transform: 'translate(-20px, 20px) scale(0.95)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between relative overflow-x-hidden selection:bg-cyan-500/30 selection:text-cyan-200">
+
+    <!-- Ambient Background Glow Orbs & Grid Pattern -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <!-- Subtle Radial Grid -->
+        <div class="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:28px_28px] opacity-40"></div>
+        <!-- Top-Left Cyan Glow -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[128px] animate-blob"></div>
+        <!-- Bottom-Right Indigo Glow -->
+        <div class="absolute -bottom-32 -right-32 w-[28rem] h-[28rem] bg-indigo-600/20 rounded-full blur-[128px] animate-blob-delayed"></div>
+    </div>
+
+    <!-- Top Navigation / Status Header -->
+    <header class="relative z-10 w-full max-w-5xl mx-auto px-6 pt-8 flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/25">
+                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+            </div>
+            <span class="font-display font-bold tracking-tight text-slate-200 text-sm sm:text-base">Section C <span class="text-slate-500 font-normal">/ Archive</span></span>
+        </div>
+
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/80 border border-slate-800/80 backdrop-blur-md text-xs font-medium text-slate-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Repository Active
+        </div>
+    </header>
+
+    <!-- Main Hero & Action Cards Section -->
+    <main class="relative z-10 w-full max-w-4xl mx-auto px-6 py-12 sm:py-20 flex flex-col items-center text-center">
+        
+        <!-- Welcome Badge -->
+        <div class="animate-fade-in-up inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs sm:text-sm font-medium tracking-wide">
+            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Official Project Portal
+        </div>
+
+        <!-- Primary Welcome Heading -->
+        <h1 class="animate-fade-in-up font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-white leading-[1.15] mb-5">
+            Welcome to <br class="sm:hidden" />
+            <span class="bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 bg-clip-text text-transparent">
+                Section C
+            </span>
+            documentation
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="animate-fade-in-up max-w-xl text-slate-400 text-base sm:text-lg leading-relaxed mb-12">
+            Access recorded Aqualoop system performance testing and explore complete technical documentation, schematics, and reports in our shared repository.
+        </p>
+
+        <!-- Action Cards Grid -->
+        <div class="animate-fade-in-up w-full grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+            
+            <!-- 1. Aqualoop Test Result Button Card -->
+            <button 
+                id="openVideoModalBtn"
+                type="button"
+                class="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/15 focus:outline-none focus:ring-2 focus:ring-cyan-400/50 cursor-pointer"
+            >
+                <!-- Subtle Hover Gradient Overlay -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-cyan-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <!-- Video Icon Container -->
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-slate-950 transition-all duration-300 shadow-inner">
+                            <svg class="w-7 h-7 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-800/90 text-slate-300 border border-slate-700/70 group-hover:border-cyan-500/30 group-hover:text-cyan-300 transition-colors">
+                            MP4 Video
+                        </span>
+                    </div>
+
+                    <h2 class="font-display font-bold text-xl sm:text-2xl text-white mb-2 group-hover:text-cyan-300 transition-colors">
+                        1. Aqualoop Test Result
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Launch the interactive media player to watch the recorded <code class="text-xs px-1.5 py-0.5 rounded bg-slate-800 text-cyan-300">Aqualoop.mp4</code> demonstration and test run results.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform">
+                    <span>Watch Video Recording</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+                    </svg>
+                </div>
+            </button>
+
+            <!-- 2. Documentation Google Drive Link Card -->
+            <!-- =====================================================================
+                 TODO: Replace the href URL below with your actual Google Drive link
+                 ===================================================================== -->
+            <a 
+                href="https://drive.google.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="group relative flex flex-col justify-between p-7 sm:p-8 rounded-3xl bg-slate-900/60 hover:bg-slate-900/90 border border-slate-800 hover:border-indigo-500/50 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-indigo-500/15 focus:outline-none focus:ring-2 focus:ring-indigo-400/50"
+            >
+                <!-- Subtle Hover Gradient Overlay -->
+                <div class="absolute inset-0 rounded-3xl bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <!-- Folder / Drive Icon Container -->
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:scale-110 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path>
+                            </svg>
+                        </div>
+                        <span class="px-3 py-1 rounded-full text-xs font-medium bg-slate-800/90 text-slate-300 border border-slate-700/70 group-hover:border-indigo-500/30 group-hover:text-indigo-300 transition-colors">
+                            Google Drive
+                        </span>
+                    </div>
+
+                    <h2 class="font-display font-bold text-xl sm:text-2xl text-white mb-2 group-hover:text-indigo-300 transition-colors">
+                        2. Documentation
+                    </h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Open the shared Google Drive folder containing full PDF manuals, calibration logs, and Section C research files.
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-2 text-sm font-semibold text-indigo-400 group-hover:translate-x-1 transition-transform">
+                    <span>Open Google Drive</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="relative z-10 w-full max-w-5xl mx-auto px-6 py-6 border-t border-slate-900/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+        <p>&copy; <span id="currentYear"></span> Section C Documentation. Hosted on GitHub Pages.</p>
+        <p class="text-slate-600">Ensure <code class="text-slate-400">Aqualoop.mp4</code> is placed in the root directory.</p>
+    </footer>
+
+    <!-- =========================================================================
+         VIDEO POPUP MODAL OVERLAY
+         ========================================================================= -->
+    <div 
+        id="videoModal" 
+        class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/85 backdrop-blur-md transition-opacity duration-300 opacity-0"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+        <!-- Modal Content Box -->
+        <div 
+            id="modalPanel"
+            class="relative w-full max-w-4xl rounded-3xl bg-slate-900 border border-slate-800 shadow-2xl shadow-black/80 overflow-hidden transform scale-95 transition-transform duration-300"
+        >
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-900/95">
+                <div class="flex items-center gap-3">
+                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee]"></span>
+                    <h3 id="modalTitle" class="font-display font-bold text-base sm:text-lg text-white">
+                        Aqualoop Test Result <span class="text-slate-500 font-normal text-sm ml-1">(Aqualoop.mp4)</span>
+                    </h3>
+                </div>
+                <button 
+                    id="closeVideoModalBtn"
+                    type="button"
+                    class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500/50 cursor-pointer"
+                    aria-label="Close video modal"
+                >
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Responsive Video Container -->
+            <div class="relative bg-black aspect-video w-full flex items-center justify-center">
+                <video 
+                    id="aqualoopVideo" 
+                    class="w-full h-full object-contain" 
+                    controls 
+                    playsinline 
+                    preload="metadata"
+                >
+                    <source src="Aqualoop.mp4" type="video/mp4">
+                    Your browser does not support the HTML5 video tag.
+                </video>
+
+                <!-- Helpful Fallback Message if Aqualoop.mp4 is missing or fails to load -->
+                <div id="videoFallback" class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center bg-slate-950/95">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-3">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="font-display font-bold text-white text-lg mb-1">Video File Not Found</h4>
+                    <p class="text-slate-400 text-sm max-w-md">
+                        Could not load <code class="text-cyan-300 bg-slate-900 px-1.5 py-0.5 rounded">Aqualoop.mp4</code>. Make sure you upload <strong>Aqualoop.mp4</strong> into the exact same folder as <code class="text-slate-300">index.html</code> in your GitHub repository (case-sensitive).
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Modal & Video Control Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set dynamic footer year
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            const openBtn = document.getElementById('openVideoModalBtn');
+            const closeBtn = document.getElementById('closeVideoModalBtn');
+            const modal = document.getElementById('videoModal');
+            const modalPanel = document.getElementById('modalPanel');
+            const video = document.getElementById('aqualoopVideo');
+            const videoSource = video.querySelector('source');
+            const fallback = document.getElementById('videoFallback');
+
+            // Detect if Aqualoop.mp4 fails to load in the repository
+            videoSource.addEventListener('error', () => {
+                video.classList.add('hidden');
+                fallback.classList.remove('hidden');
+                fallback.classList.add('flex');
+            });
+
+            // Open Modal Function
+            function openModal() {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+                // Trigger smooth entrance animation
+                requestAnimationFrame(() => {
+                    modal.classList.remove('opacity-0');
+                    modalPanel.classList.remove('scale-95');
+                    modalPanel.classList.add('scale-100');
+                });
+
+                // Attempt to play video automatically when opened
+                if (!video.classList.contains('hidden')) {
+                    video.play().catch(() => {
+                        // Browser autoplay policies may require user to click play manually
+                    });
+                }
+            }
+
+            // Close Modal Function
+            function closeModal() {
+                modal.classList.add('opacity-0');
+                modalPanel.classList.remove('scale-100');
+                modalPanel.classList.add('scale-95');
+
+                // Pause and reset video playback
+                video.pause();
+                video.currentTime = 0;
+
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 250);
+            }
+
+            // Event Listeners
+            openBtn.addEventListener('click', openModal);
+            closeBtn.addEventListener('click', closeModal);
+
+            // Close modal when clicking outside the video container (backdrop)
+            modal.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal on Escape key press
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
